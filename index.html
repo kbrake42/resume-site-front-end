@@ -166,13 +166,27 @@
 
 		<div id="ft">
 			<p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
+			<div id="counter"></div>
 		</div><!--// footer -->
+
 
 	</div><!-- // inner -->
 
 
 </div><!--// doc -->
 
+<script type="text/javascript">
+
+	let counter = document.getElementById("counter");	
+
+	const callCountAPI = async () => {
+  		const response = await fetch('https://eydcr5v620.execute-api.us-east-1.amazonaws.com/prod');
+  		const responseJson = await response.json(); //extract JSON from the http response
+		counter.innerHTML = "Number of Visitors to this site: " + JSON.parse(responseJson.body).Visitor;
+	}
+		document.addEventListener( "DOMContentLoaded", callCountAPI());
+		
+ </script>
 
 </body>
 </html>
