@@ -184,7 +184,8 @@
   		const responseJson = await response.json(); //extract JSON from the http response
 		counter.innerHTML = "Number of Visitors to this site: " + JSON.parse(responseJson.body).Visitor;
 	}
-		document.addEventListener( "DOMContentLoaded", callCountAPI());
+
+	document.addEventListener( "DOMContentLoaded", callCountAPI());
 		
  </script>
 
